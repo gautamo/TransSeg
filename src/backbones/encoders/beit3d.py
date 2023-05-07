@@ -120,6 +120,9 @@ def load_checkpoint(
     Returns:
         dict or OrderedDict: The loaded checkpoint.
     """
+    print(f"GB: filename: {filename}, map_location: {map_location}")
+    print(torch.__version__)
+    print(torch.__file__)
     checkpoint = torch.load(filename, map_location=map_location)
 
     # --- starting inflate/center weights ---
@@ -136,14 +139,28 @@ def load_checkpoint(
     )  # from 1-channel grayed to n-channel grayed
     emb = emb.unsqueeze(2).repeat(1, 1, n_slices, 1, 1)  # from 2D to 3D
     if bootstrap_method == "inflation":
-        print("Inflation!!!")
+        print("Averaging Inflation!!!")
         emb = emb / n_slices
     elif bootstrap_method == "centering":
-        print("Centering!!!")
+        print("Centering Inflation!!!")
         center_idx = n_slices // 2
         all_idxs = list(range(n_slices))
         all_idxs.pop(center_idx)
         emb[:, :, all_idxs, :, :] = 0
+    elif bootstrap_method == "linear":
+        print("Linear Inflation!!!") # GB Written Alorithm
+        center_idx = n_slices // 2
+        max_weight = 1.0
+        if n_slices % 2 == 0:
+            weights_left = [max_weight - max_weight * abs(i - center_idx + 1) / center_idx for i in range(center_idx)]
+            weights_right = list(reversed(weights_left))
+            weights = weights_left + weights_right
+        else:
+            weights = [max_weight - max_weight * abs(i - center_idx) / center_idx for i in range(n_slices)]
+        
+        for i, weight in enumerate(weights):
+            emb[:, :, i, :, :] *= weight
+
     else:
         raise
     print("New:", emb.shape, emb.sum())

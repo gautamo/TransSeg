@@ -98,19 +98,20 @@ def process_metadata(filename, inputdir, json_metadata):
 
 def main():
     random.seed(1234)
-
+    ### Gautam: all data can be put in the list, if all folders are present. Else just use "Task09_Spleen" ###
+    # "Task01_BrainTumour",
+    # "Task03_Liver",
+    # "Task05_Prostate",
+    # "Task07_Pancreas",
+    # "Task09_Spleen",
+    # "Task02_Heart",
+    # "Task04_Hippocampus",
+    # "Task06_Lung",
+    # "Task08_HepaticVessel",
+    # "Task10_Colon",
     for inputdir in sorted(
         [
-            "Task01_BrainTumour",
-            "Task03_Liver",
-            "Task05_Prostate",
-            "Task07_Pancreas",
-            "Task09_Spleen",
-            "Task02_Heart",
-            "Task04_Hippocampus",
-            "Task06_Lung",
-            "Task08_HepaticVessel",
-            "Task10_Colon",
+            "Task10_Colon"
         ]
     ):
         dataset = json.load(open(f"{inputdir}/dataset.json"))
@@ -144,13 +145,18 @@ def main():
             len(leaderboard_filenames),
         )
 
-        pool = Pool(48)
-        pool.map(
-            partial(process, inputdir=inputdir),
-            train_filenames + val_filenames + test_filenames + leaderboard_filenames,
-        )
-        pool.close()
-        pool.join()
+        # pool = Pool(48)
+        # pool.map(
+        #     partial(process, inputdir=inputdir),
+        #     train_filenames + val_filenames + test_filenames + leaderboard_filenames,
+        # )
+        # pool.close()
+        # pool.join()
+    
+        f_names = train_filenames + val_filenames + test_filenames + leaderboard_filenames
+        for cnt, f_name in enumerate(f_names):
+            print(f"GB Processing {cnt}/{len(f_names)}: {f_name}")
+            process(f_name, inputdir)
 
         json_metadata = {"training": [], "validation": [], "local_test": [], "test": []}
         for filename in (
