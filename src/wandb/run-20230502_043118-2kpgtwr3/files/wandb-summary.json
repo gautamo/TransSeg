@@ -1,0 +1,1 @@
+{"lr-AdamW/pg1": 2.983546837469976e-05, "lr-AdamW/pg2": 2.983546837469976e-05, "trainer/global_step": 157, "_runtime": 282, "_timestamp": 1683002160, "_step": 314, "train/loss": 0.9597276449203491, "train/dice_loss": 0.0, "train/ce_loss": 0.0, "epoch": 0}

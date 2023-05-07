@@ -1,0 +1,13 @@
+2023-05-04 06:02:45,106 INFO    MainThread:37422 [internal.py:wandb_internal():86] W&B internal server running at pid: 37422, started at: 2023-05-04 06:02:45.103860
+2023-05-04 06:02:45,108 INFO    WriterThread:37422 [datastore.py:open_for_write():77] open: /gdrive/MyDrive/TransSeg/src/wandb/offline-run-20230504_060244-242ialin/run-242ialin.wandb
+2023-05-04 06:02:45,109 DEBUG   HandlerThread:37422 [handler.py:handle_request():126] handle_request: run_start
+2023-05-04 06:02:46,294 DEBUG   HandlerThread:37422 [meta.py:__init__():40] meta init
+2023-05-04 06:02:46,295 DEBUG   HandlerThread:37422 [meta.py:__init__():54] meta init done
+2023-05-04 06:02:46,295 DEBUG   HandlerThread:37422 [meta.py:probe():211] probe
+2023-05-04 06:02:46,305 DEBUG   HandlerThread:37422 [meta.py:_setup_git():201] setup git
+2023-05-04 06:02:51,952 DEBUG   HandlerThread:37422 [meta.py:_setup_git():208] setup git done
+2023-05-04 06:02:51,953 DEBUG   HandlerThread:37422 [meta.py:_save_pip():58] save pip
+2023-05-04 06:02:51,957 DEBUG   HandlerThread:37422 [meta.py:_save_pip():72] save pip done
+2023-05-04 06:02:51,957 DEBUG   HandlerThread:37422 [meta.py:_save_conda():79] save conda
+2023-05-04 06:02:55,943 DEBUG   HandlerThread:37422 [meta.py:_save_conda():87] save conda done
+2023-05-04 06:02:55,943 DEBUG   HandlerThread:37422 [meta.py:probe():249] probe done

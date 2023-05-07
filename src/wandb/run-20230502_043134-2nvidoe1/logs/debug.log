@@ -1,0 +1,35 @@
+2023-05-02 04:31:34,889 INFO    MainThread:36096 [wandb_setup.py:_flush():69] setting env: {}
+2023-05-02 04:31:34,890 INFO    MainThread:36096 [wandb_setup.py:_flush():69] setting login settings: {}
+2023-05-02 04:31:34,890 INFO    MainThread:36096 [wandb_setup.py:_flush():69] setting login settings: {'api_key': 'c938c0a5d0f96ef063e9a27072521b6fb39c2015'}
+2023-05-02 04:31:34,890 INFO    MainThread:36096 [wandb_init.py:_log_setup():357] Logging user logs to /gdrive/MyDrive/TransSeg/src/wandb/run-20230502_043134-2nvidoe1/logs/debug.log
+2023-05-02 04:31:34,891 INFO    MainThread:36096 [wandb_init.py:_log_setup():358] Logging internal logs to /gdrive/MyDrive/TransSeg/src/wandb/run-20230502_043134-2nvidoe1/logs/debug-internal.log
+2023-05-02 04:31:34,891 INFO    MainThread:36096 [wandb_init.py:init():390] calling init triggers
+2023-05-02 04:31:34,891 INFO    MainThread:36096 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {'data_dir': 'data/bcv/processed/', 'split_json': 'dataset_5slices.json', 'train_batch_size': 2, 'eval_batch_size': 2, 'clip_range': [-175, 250], 'mean_std': None, 'force_2d': 1, 'use_pretrained': 1, 'bootstrap_method': 'inflation', 'in_channels': 1, 'out_channels': 14, 'patch_size': 16, 'img_size': [512, 512, 5], 'encoder': 'beit', 'decoder': 'upernet', 'loss_type': 'dicefocal', 'dropout_rate': 0.0, 'learning_rate': 3e-05, 'weight_decay': 0.05, 'warmup_steps': 20, 'max_steps': 25000, 'default_root_dir': '.', 'gpus': -1, 'val_check_interval': 1.0, 'check_val_every_n_epoch': 100, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'log_every_n_steps': 1, 'precision': 32, 'accelerator': 'ddp', 'seed': 1234, 'evaluation': 0, 'model_path': None, 'checkpoint_dir': 'data/bcv/processed/checkpoint/ourswod/inflation'}
+2023-05-02 04:31:34,891 INFO    MainThread:36096 [wandb_init.py:init():435] starting backend
+2023-05-02 04:31:34,891 INFO    MainThread:36096 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-05-02 04:31:34,943 INFO    MainThread:36096 [backend.py:ensure_launched():135] starting backend process...
+2023-05-02 04:31:34,992 INFO    MainThread:36096 [backend.py:ensure_launched():139] started backend process with pid: 36946
+2023-05-02 04:31:34,994 INFO    MainThread:36096 [wandb_init.py:init():440] backend started and connected
+2023-05-02 04:31:34,997 INFO    MainThread:36096 [wandb_init.py:init():499] updated telemetry
+2023-05-02 04:31:34,998 INFO    MainThread:36096 [wandb_init.py:init():522] communicating current version
+2023-05-02 04:31:35,877 INFO    MainThread:36096 [wandb_init.py:init():527] got version response upgrade_message: "wandb version 0.15.0 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-05-02 04:31:35,877 INFO    MainThread:36096 [wandb_init.py:init():535] communicating run to backend with 30 second timeout
+2023-05-02 04:31:42,407 INFO    MainThread:36096 [wandb_init.py:init():562] starting run threads in backend
+2023-05-02 04:31:46,991 INFO    MainThread:36096 [wandb_run.py:_console_start():1651] atexit reg
+2023-05-02 04:31:46,994 INFO    MainThread:36096 [wandb_run.py:_redirect():1525] redirect: SettingsConsole.REDIRECT
+2023-05-02 04:31:46,994 INFO    MainThread:36096 [wandb_run.py:_redirect():1530] Redirecting console.
+2023-05-02 04:31:46,996 INFO    MainThread:36096 [wandb_run.py:_redirect():1586] Redirects installed.
+2023-05-02 04:31:46,996 INFO    MainThread:36096 [wandb_init.py:init():587] run started, returning control to user process
+2023-05-02 04:31:46,997 INFO    MainThread:36096 [wandb_run.py:_config_callback():878] config_cb None None {'force_2d': 1, 'use_pretrained': 1, 'bootstrap_method': 'inflation', 'in_channels': 1, 'out_channels': 14, 'patch_size': 16, 'img_size': [512, 512, 5], 'hidden_size': 768, 'mlp_dim': 3072, 'num_heads': 12, 'num_layers': 12, 'encoder': 'beit', 'decoder': 'upernet', 'loss_type': 'dicefocal', 'save_preds': False, 'dropout_rate': 0.0, 'learning_rate': 3e-05, 'weight_decay': 0.05, 'warmup_steps': 20, 'max_steps': 25000, 'adam_epsilon': 1e-08}
+2023-05-02 04:36:03,439 INFO    MainThread:36096 [wandb_run.py:_atexit_cleanup():1621] got exitcode: 1
+2023-05-02 04:36:03,439 INFO    MainThread:36096 [wandb_run.py:_restore():1593] restore
+2023-05-02 04:36:06,353 INFO    MainThread:36096 [wandb_run.py:_restore():1593] restore
+2023-05-02 04:36:10,935 ERROR   MainThread:36096 [wandb_run.py:_atexit_cleanup():1639] Problem finishing run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1629, in _atexit_cleanup
+    self._on_finish()
+  File "/usr/local/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1792, in _on_finish
+    print("")
+OSError: [Errno 5] Input/output error

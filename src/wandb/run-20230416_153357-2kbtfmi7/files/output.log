@@ -1,0 +1,73 @@
+
+Validating:   0% 0/784 [00:00<?, ?it/s]
+/usr/local/lib/python3.8/site-packages/torch/nn/functional.py:3060: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Validating: 100% 784/784 [12:16<00:00,  1.10it/s]
+Traceback (most recent call last):
+  File "main.py", line 180, in <module>
+    evaluate(args)
+  File "main.py", line 168, in evaluate
+    trainer.validate(model, datamodule=dm)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 627, in validate
+    results = self._run(model)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 922, in _run
+    self._dispatch()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _dispatch
+    self.accelerator.start_evaluating(self)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/accelerators/accelerator.py", line 95, in start_evaluating
+    self.training_type_plugin.start_evaluating(trainer)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 165, in start_evaluating
+    self._results = trainer.run_stage()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 997, in run_stage
+    return self._run_evaluate()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1083, in _run_evaluate
+    eval_loop_results = self._evaluation_loop.run()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 118, in run
+    output = self.on_run_end()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 133, in on_run_end
+    self.evaluation_epoch_end(outputs)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 243, in evaluation_epoch_end
+    model.validation_epoch_end(outputs)
+  File "/gdrive/MyDrive/TransSeg/src/model.py", line 302, in validation_epoch_end
+    with open(f"dumps/val-{cur_time}.pkl", "wb") as fout:
+Validating: 100% 784/784 [12:16<00:00,  1.10it/s][0.865074   0.65619089 0.90556587 0.89722975 0.9381158  0.65333076
+ 0.80605051 0.74731161]

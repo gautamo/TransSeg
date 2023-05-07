@@ -1,0 +1,21 @@
+2023-05-04 05:59:59,034 INFO    MainThread:33862 [wandb_setup.py:_flush():69] setting env: {}
+2023-05-04 05:59:59,035 INFO    MainThread:33862 [wandb_setup.py:_flush():69] setting login settings: {}
+2023-05-04 05:59:59,035 INFO    MainThread:33862 [wandb_setup.py:_flush():69] setting login settings: {'mode': 'offline'}
+2023-05-04 05:59:59,035 INFO    MainThread:33862 [wandb_init.py:_log_setup():357] Logging user logs to /gdrive/MyDrive/TransSeg/src/wandb/offline-run-20230504_055959-x0s00jxh/logs/debug.log
+2023-05-04 05:59:59,036 INFO    MainThread:33862 [wandb_init.py:_log_setup():358] Logging internal logs to /gdrive/MyDrive/TransSeg/src/wandb/offline-run-20230504_055959-x0s00jxh/logs/debug-internal.log
+2023-05-04 05:59:59,036 INFO    MainThread:33862 [wandb_init.py:init():390] calling init triggers
+2023-05-04 05:59:59,036 INFO    MainThread:33862 [wandb_init.py:init():395] wandb.init called with sweep_config: {}
+config: {'data_dir': 'data/bcv/processed/', 'split_json': 'dataset_5slices.json', 'train_batch_size': 2, 'eval_batch_size': 2, 'clip_range': [-175, 250], 'mean_std': None, 'force_2d': 0, 'use_pretrained': 0, 'bootstrap_method': 'linear', 'in_channels': 1, 'out_channels': 14, 'patch_size': 16, 'img_size': [512, 512, 5], 'encoder': 'beit', 'decoder': 'upernet', 'loss_type': 'dicefocal', 'dropout_rate': 0.0, 'learning_rate': 3e-05, 'weight_decay': 0.05, 'warmup_steps': 20, 'max_steps': 25000, 'default_root_dir': '.', 'gpus': -1, 'val_check_interval': 1.0, 'check_val_every_n_epoch': 100, 'gradient_clip_val': 1.0, 'accumulate_grad_batches': 1, 'log_every_n_steps': 1, 'precision': 32, 'accelerator': 'ddp', 'seed': 1234, 'evaluation': 0, 'model_path': None, 'checkpoint_dir': 'data/bcv/processed/checkpoint/ourswot/linear'}
+2023-05-04 05:59:59,036 INFO    MainThread:33862 [wandb_init.py:init():435] starting backend
+2023-05-04 05:59:59,036 INFO    MainThread:33862 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-05-04 05:59:59,089 INFO    MainThread:33862 [backend.py:ensure_launched():135] starting backend process...
+2023-05-04 05:59:59,134 INFO    MainThread:33862 [backend.py:ensure_launched():139] started backend process with pid: 34476
+2023-05-04 05:59:59,136 INFO    MainThread:33862 [wandb_init.py:init():440] backend started and connected
+2023-05-04 05:59:59,138 INFO    MainThread:33862 [wandb_init.py:init():499] updated telemetry
+2023-05-04 05:59:59,141 INFO    MainThread:33862 [wandb_init.py:init():562] starting run threads in backend
+2023-05-04 06:00:04,142 INFO    MainThread:33862 [wandb_run.py:_console_start():1651] atexit reg
+2023-05-04 06:00:04,145 INFO    MainThread:33862 [wandb_run.py:_redirect():1525] redirect: SettingsConsole.REDIRECT
+2023-05-04 06:00:04,145 INFO    MainThread:33862 [wandb_run.py:_redirect():1530] Redirecting console.
+2023-05-04 06:00:04,147 INFO    MainThread:33862 [wandb_run.py:_redirect():1586] Redirects installed.
+2023-05-04 06:00:04,147 INFO    MainThread:33862 [wandb_init.py:init():587] run started, returning control to user process
+2023-05-04 06:00:04,148 INFO    MainThread:33862 [wandb_run.py:_config_callback():878] config_cb None None {'force_2d': 0, 'use_pretrained': 0, 'bootstrap_method': 'linear', 'in_channels': 1, 'out_channels': 14, 'patch_size': 16, 'img_size': [512, 512, 5], 'hidden_size': 768, 'mlp_dim': 3072, 'num_heads': 12, 'num_layers': 12, 'encoder': 'beit', 'decoder': 'upernet', 'loss_type': 'dicefocal', 'save_preds': False, 'dropout_rate': 0.0, 'learning_rate': 3e-05, 'weight_decay': 0.05, 'warmup_steps': 20, 'max_steps': 25000, 'adam_epsilon': 1e-08}

@@ -1,0 +1,67 @@
+/usr/local/lib/python3.8/site-packages/torch/nn/functional.py:3060: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn("Default upsampling behavior when mode={} is changed "
+
+
+
+
+
+
+
+
+
+
+
+Validating: 100% 208/208 [03:57<00:00,  1.25s/it]
+/gdrive/MyDrive/TransSeg/src/utils.py:317: RuntimeWarning: invalid value encountered in true_divide
+Validating: 100% 208/208 [03:57<00:00,  1.25s/it][0.         0.         0.00445853 0.         0.         0.
+ 0.03249872 0.        ]
+/usr/local/lib/python3.8/site-packages/pytorch_lightning/core/datamodule.py:423: LightningDeprecationWarning: DataModule.prepare_data has already been called, so it will not be called again. In v1.6 this behavior will change to always call DataModule.prepare_data.
+  rank_zero_deprecation(
+Global seed set to 1234
+Loading dataset:   2% 1/64 [00:00<00:12,  4.89it/s]
+--------------------------------------------------------------------------------
+DATALOADER:0 VALIDATE RESULTS
+{'val/acc': 0.9506455659866333,
+ 'val/ce_loss': 0.0,
+ 'val/dice_loss': 0.0,
+ 'val/loss': 0.9576589465141296,
+ 'val/macc': nan,
+ 'val/mdice': 0.07251503318548203,
+ 'val/mdice_8': 0.0046196565963327885,
+ 'val/mdice_nobg': 0.0028428654186427593,
+ 'val/miou': 0.06972744315862656}
+--------------------------------------------------------------------------------
+GB: END trainer.validate(datamodule=dm)
+GB: START trainer.test(datamodule=dm)
+Loading dataset: 100% 64/64 [00:01<00:00, 37.81it/s]
+Loading dataset:  22% 14/64 [00:00<00:01, 25.44it/s]
+Loading dataset: 100% 64/64 [00:02<00:00, 26.80it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+Traceback (most recent call last):
+  File "main.py", line 180, in <module>
+    evaluate(args)
+  File "main.py", line 171, in evaluate
+    trainer.test(model, datamodule=dm)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 705, in test
+    results = self._run(model)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 922, in _run
+    self._dispatch()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 986, in _dispatch
+    self.accelerator.start_evaluating(self)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/accelerators/accelerator.py", line 95, in start_evaluating
+    self.training_type_plugin.start_evaluating(trainer)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/plugins/training_type/training_type_plugin.py", line 165, in start_evaluating
+    self._results = trainer.run_stage()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 997, in run_stage
+    return self._run_evaluate()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1077, in _run_evaluate
+    self._evaluation_loop.reload_evaluation_dataloaders()
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/loops/dataloader/evaluation_loop.py", line 170, in reload_evaluation_dataloaders
+    self.trainer.reset_test_dataloader(model)
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/data_loading.py", line 452, in reset_test_dataloader
+    self.num_test_batches, self.test_dataloaders = self._reset_eval_dataloader(model, "test")
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/trainer/data_loading.py", line 402, in _reset_eval_dataloader
+    num_batches = len(dataloader) if has_len(dataloader) else float("inf")
+  File "/usr/local/lib/python3.8/site-packages/pytorch_lightning/utilities/data.py", line 63, in has_len
+    raise ValueError("`Dataloader` returned 0 length. Please make sure that it returns at least 1 batch")
+ValueError: `Dataloader` returned 0 length. Please make sure that it returns at least 1 batch

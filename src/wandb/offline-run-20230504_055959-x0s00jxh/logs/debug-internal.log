@@ -1,0 +1,13 @@
+2023-05-04 06:00:00,011 INFO    MainThread:34476 [internal.py:wandb_internal():86] W&B internal server running at pid: 34476, started at: 2023-05-04 06:00:00.008948
+2023-05-04 06:00:00,013 INFO    WriterThread:34476 [datastore.py:open_for_write():77] open: /gdrive/MyDrive/TransSeg/src/wandb/offline-run-20230504_055959-x0s00jxh/run-x0s00jxh.wandb
+2023-05-04 06:00:00,013 DEBUG   HandlerThread:34476 [handler.py:handle_request():126] handle_request: run_start
+2023-05-04 06:00:01,117 DEBUG   HandlerThread:34476 [meta.py:__init__():40] meta init
+2023-05-04 06:00:01,118 DEBUG   HandlerThread:34476 [meta.py:__init__():54] meta init done
+2023-05-04 06:00:01,118 DEBUG   HandlerThread:34476 [meta.py:probe():211] probe
+2023-05-04 06:00:01,127 DEBUG   HandlerThread:34476 [meta.py:_setup_git():201] setup git
+2023-05-04 06:00:09,725 DEBUG   HandlerThread:34476 [meta.py:_setup_git():208] setup git done
+2023-05-04 06:00:09,725 DEBUG   HandlerThread:34476 [meta.py:_save_pip():58] save pip
+2023-05-04 06:00:09,729 DEBUG   HandlerThread:34476 [meta.py:_save_pip():72] save pip done
+2023-05-04 06:00:09,730 DEBUG   HandlerThread:34476 [meta.py:_save_conda():79] save conda
+2023-05-04 06:00:14,022 DEBUG   HandlerThread:34476 [meta.py:_save_conda():87] save conda done
+2023-05-04 06:00:14,022 DEBUG   HandlerThread:34476 [meta.py:probe():249] probe done
