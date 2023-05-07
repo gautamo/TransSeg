@@ -53,6 +53,9 @@ def parse_args(args=None):
     ## Require parameters for evaluation
     parser.add_argument("--evaluation", default=0, type=int)
     parser.add_argument("--model_path", default=None, type=str)
+    
+    ## GB Checkpoint Dir
+    parser.add_argument("--checkpoint_dir", default="checkpoints", type=str)
 
     args = parser.parse_args(args)
     return args
@@ -97,7 +100,8 @@ def train(args):
         model = SegmentationModel.load_from_checkpoint(args.model_path)
 
     checkpoint_callback = pl.callbacks.ModelCheckpoint(
-        save_top_k=1, monitor="val/mdice", mode="max"
+        save_top_k=1, monitor="val/mdice", mode="max",
+        dirpath=f"{args.checkpoint_dir}" # GB: save checkpoints after each epoch
     )
     lr_monitor = pl.callbacks.LearningRateMonitor(logging_interval="step")
 
@@ -118,9 +122,15 @@ def train(args):
         # limit_val_batches=1, # TODO: uncomment for debugging
         # limit_test_batches=1, # TODO: uncomment for debugging
     )
+    print("GB: START trainer.fit(model, datamodule=dm)")
     trainer.fit(model, datamodule=dm)
+    print("GB: END trainer.fit(model, datamodule=dm)")
+    print("GB: START trainer.validate(datamodule=dm)")
     trainer.validate(datamodule=dm)
+    print("GB: END trainer.validate(datamodule=dm)")
+    print("GB: START trainer.test(datamodule=dm)")
     trainer.test(datamodule=dm)
+    print("GB: END trainer.test(datamodule=dm)")
 
 
 def evaluate(args):
@@ -154,8 +164,12 @@ def evaluate(args):
         # limit_val_batches=1, # TODO: uncomment for debugging
         # limit_test_batches=1, # TODO: uncomment for debugging
     )
+    print("GB: START trainer.validate(datamodule=dm)")
     trainer.validate(model, datamodule=dm)
+    print("GB: END trainer.validate(datamodule=dm)")
+    print("GB: START trainer.test(datamodule=dm)")
     trainer.test(model, datamodule=dm)
+    print("GB: END trainer.test(datamodule=dm)")
 
 
 if __name__ == "__main__":
