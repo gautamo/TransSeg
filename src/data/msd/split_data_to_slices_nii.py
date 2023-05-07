@@ -111,7 +111,7 @@ def main():
     # "Task10_Colon",
     for inputdir in sorted(
         [
-            "Task10_Colon"
+            "Task09_Spleen"
         ]
     ):
         dataset = json.load(open(f"{inputdir}/dataset.json"))
