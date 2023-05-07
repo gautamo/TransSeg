@@ -6,6 +6,7 @@ import numpy as np
 import pytorch_lightning as pl
 import datetime
 import pickle
+import os
 from utils import (
     eval_metrics,
     eval_metrics_per_img,
@@ -193,6 +194,12 @@ class SegmentationModel(pl.LightningModule):
             self.criterion = DiceCELoss(to_onehot_y=True, softmax=True, lambda_dice=0)
         else:
             raise
+        # GB: print working directory
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        print(f"GB Dir Path: {dir_path}")
+        cwd = os.getcwd()
+        print(f"GB CWD: {cwd}")
+        
 
     def forward(self, inputs):  # inputs: B x Cin x H x W x D
         x = inputs.permute(0, 1, 4, 2, 3).contiguous().float()  # x: B x Cin x D x H x W
@@ -216,11 +223,20 @@ class SegmentationModel(pl.LightningModule):
             inputs = inputs[:, :, :, :, n_slices // 2 : n_slices // 2 + 1].contiguous()
         labels = labels[:, :, :, :, n_slices // 2].contiguous()
         outputs = self(inputs)
-        if self.modified_loss:
-            loss, (dice_loss, ce_loss) = self.criterion(outputs, labels)
+        ### Gautam Update
+        criterion_output = self.criterion(outputs, labels)
+    
+        if isinstance(criterion_output, tuple):
+            loss, (dice_loss, ce_loss) = criterion_output
         else:
-            loss = self.criterion(outputs, labels)
+            loss = criterion_output
             dice_loss, ce_loss = torch.tensor(0), torch.tensor(0)
+        ###
+        # if self.modified_loss:
+        #     loss, (dice_loss, ce_loss) = self.criterion(outputs, labels)
+        # else:
+        #     loss = self.criterion(outputs, labels)
+        #     dice_loss, ce_loss = torch.tensor(0), torch.tensor(0)
         result = {
             "train/loss": loss.item(),
             "train/dice_loss": dice_loss.item(),
@@ -237,11 +253,20 @@ class SegmentationModel(pl.LightningModule):
             inputs = inputs[:, :, :, :, n_slices // 2 : n_slices // 2 + 1].contiguous()
         labels = labels[:, :, :, :, n_slices // 2].contiguous()
         outputs = self(inputs)
-        if self.modified_loss:
-            loss, (dice_loss, ce_loss) = self.criterion(outputs, labels)
+        ### Gautam Update
+        criterion_output = self.criterion(outputs, labels)
+    
+        if isinstance(criterion_output, tuple):
+            loss, (dice_loss, ce_loss) = criterion_output
         else:
-            loss = self.criterion(outputs, labels)
+            loss = criterion_output
             dice_loss, ce_loss = torch.tensor(0), torch.tensor(0)
+        ###
+        # if self.modified_loss:
+        #     loss, (dice_loss, ce_loss) = self.criterion(outputs, labels)
+        # else:
+        #     loss = self.criterion(outputs, labels)
+        #     dice_loss, ce_loss = torch.tensor(0), torch.tensor(0)
 
         return {
             "loss": loss.item(),
