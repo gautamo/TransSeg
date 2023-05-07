@@ -19,4 +19,6 @@ python main.py \
   --max_steps 25000 \
   --train_batch_size 2 \
   --eval_batch_size 2 \
-  --accumulate_grad_batches 2
+  --accumulate_grad_batches 2 \
+  --checkpoint_dir data/bcv/processed/checkpoint/ours/centering/acdc \
+  --bootstrap_method "centering"

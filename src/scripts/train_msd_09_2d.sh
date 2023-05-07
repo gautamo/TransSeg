@@ -20,4 +20,6 @@ python main.py \
   --train_batch_size 2 \
   --eval_batch_size 2 \
   --accumulate_grad_batches 2 \
-  --force_2d 1
+  --force_2d 1 \
+  --checkpoint_dir data/bcv/processed/checkpoint/ourswod/centering/msd09 \
+  --bootstrap_method "centering"
