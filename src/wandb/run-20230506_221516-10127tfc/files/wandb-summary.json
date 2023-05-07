@@ -1,1 +1,0 @@
-{"val/loss": 0.9670394062995911, "val/dice_loss": 0.0, "val/ce_loss": 0.0, "val/acc": 0.8998371958732605, "val/macc": NaN, "val/miou": NaN, "val/mdice": NaN, "val/mdice_nobg": NaN, "val/mdice_8": NaN, "epoch": 0, "trainer/global_step": 0, "_runtime": 675, "_timestamp": 1683411991, "_step": 0, "_wandb": {"runtime": 681}}
