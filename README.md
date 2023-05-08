@@ -1,5 +1,17 @@
 # Adapting Pre-trained Vision Transformers from 2D to 3D through Weight Inflation Improves Medical Image Segmentation
 
+## CS 598 Deep Learning for Healthcare Advisory: This repo is forked from yuhui-zh15/TransSeg and contains code modifications in order to get the Training folder Notebook and Evaluation Notebooks running.
+- Added 16 Training Scripts to train the 16 models used for Table 1 & 2 in the DLH Report.
+- Added a conda_requirements.txt and pip_requirements.txt file adapted from environments.yml with library modifications in order to install all the necessary libraries in the Training / Evaluation Notebooks. Some libraries had to be installed independently in the Colab Notebooks.
+- Added the Linear Inflation ablation to src/backbones/encoders/beit3d.py
+- Added a src/linear_inflation.py visualization for the linear inflation method
+- Removed pooling for proprocessing data applied only to Task09_Spleen on src/data/msd/split_data_to_slices_nii.py as there were execution failures with pooling.
+- Added checkpoint directory in src/main.py so that checkpoints of training are saved every epoch - generally every 45 minutes.
+- Updated forward method in src/model.py to resolve bug with self.criterion implementation
+- Added 16 training scripts to src/scripts for each of the 16 models trained.
+
+## Below is the original README. To run the Training / Evaluation Notebooks, the must upload this repo into Google Drive, follow the "Dataset and Model" steps below to download and preprocess the BCV, ACDC, and MSD09 Datasets, and finally the user can run the Training / Evaluation Notebooks. A summary of the code modifications are below. 
+
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-3811/)
 [![Pytorch](https://img.shields.io/badge/Pytorch-1.7-red.svg)](https://pytorch.org/get-started/previous-versions/#v171)
