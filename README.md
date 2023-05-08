@@ -10,7 +10,7 @@
 - Updated forward method in src/model.py to resolve bug with self.criterion implementation
 - Added 16 training scripts to src/scripts for each of the 16 models trained.
 
-## Below is the original README. To run the Training / Evaluation Notebooks, the must upload this repo into Google Drive, follow the "Dataset and Model" steps below to download and preprocess the BCV, ACDC, and MSD09 Datasets, and finally the user can run the Training / Evaluation Notebooks.
+## Below is the original README. To run the Training / Evaluation Notebooks, the user must upload this repo into Google Drive, follow the "Dataset and Model" steps below to download and preprocess the BCV, ACDC, and MSD09 Datasets, and finally the user can run the Training / Evaluation Colab Notebooks found in the Training folder and base folder respectively.
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-3811/)
